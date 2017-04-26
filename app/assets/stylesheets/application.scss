@@ -152,3 +152,69 @@
      margin: 0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
      border-radius: 0;//圆角为0
    }
+
+   /*===== user ====*/
+   .user_setup{
+       height: 750px;
+       background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
+   }
+  .user_setup_title{
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+  }
+   .user_setup_content{
+       background: #fff;
+       margin-top: 135px;
+       padding-top: 20px;
+       padding-bottom: 20px;
+
+      border: 1px solid #dadada;
+      box-shadow: 0 9px 30px -6px rgba(0,0,0,.2), 0 18px 20px -10px rgba(0,0,0,.04), 0 18px 20px -10px rgba(0,0,0,.04), 0 10px 20px -10px rgba(0,0,0,.04);
+       border-radius: 10px;
+
+       opacity:0.95;
+       filter:alpha(opacity=95);
+
+       h2{
+         text-align: center;
+       }
+
+       .psw{
+         float: right;
+         margin-top: -33px;
+         position: relative;
+       }
+
+       .account{
+         text-align: center;
+       }
+
+       .form-inputs{
+         margin-top: 25px;
+         .radio{
+           display: inline-block;
+           margin-right: 20px;
+         }
+       }
+
+       .form-actions{
+         text-align: center;
+         margin-top: 35px;
+         margin-bottom: 25px;
+
+         .button{
+           color: #fff;
+           background-color: #4A6BB5;
+           border-color: #4A6BB5;
+           font-size: 16px;
+           letter-spacing: 1px;
+           width: 100%;
+         }
+         .button:hover{
+             background-color: #4A99B5;
+             border-color: #4A99B5;
+             color: #fff;
+         }
+       }
+   }
