@@ -2,11 +2,11 @@
   <div class="col-md-6 col-md-offset-3">
     <%= simple_form_for [:seeker, @mini_resume] do |f| %>
     <%= f.input :name, :label => "姓名:"%>
-    <%= f.input :sex, :label => "性别:"%>
+    <%= f.input :sex, :label => "性别:", :collection => {"男":1, "女": 0}%>
     <%= f.input :birthday, :label => "出生日期:"%>
     <%= f.input :work_start_time, :label => "开始工作时间:"%>
     <%= f.input :job_name, :label => "职位:"%>
-    <%= f.input :state, :label => "当前状态:"%>
+    <%= f.input :state, :label => "当前状态:", :collection =>{"离职":0,"在职":1}%>
     <%= f.input :address, :label => "地址:"%>
     <%= f.input :wage_lower_bound, :label => "薪资下限:" %>
     <%= f.input :wage_upper_bound, :label => "薪资上限:" %>
