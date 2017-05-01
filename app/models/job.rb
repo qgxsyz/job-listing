@@ -5,6 +5,8 @@ class Job < ApplicationRecord
   validates :wage_lower_bound, numericality: {greater_than: 0}
 
   has_many :resumes
+  has_many :job_collections
+  has_many :job_collectors, through: :job_collections, source: :user
   belongs_to :user
 
   def publish!

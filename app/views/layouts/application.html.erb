@@ -9,13 +9,13 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
+    <div class="row container-fluid common-height100">
+        <div class="min-height100">
         <%= render "common/navbar" %>
-      </div>
-      <%= render "common/flashes" %>
-      <%= yield %>
+        <%= render "common/flashes" %>
+        <%= yield %>
+       </div>
+       <%= render "common/footer" %>
     </div>
-    <%= render "common/footer" %>
   </body>
 </html>

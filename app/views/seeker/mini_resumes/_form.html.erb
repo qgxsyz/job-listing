@@ -1,0 +1,14 @@
+<%= simple_form_for [:seeker, @mini_resume] do |f| %>
+
+<%= f.input :name %>
+<%= f.input :sex %>
+<%= f.input :birthday %>
+<%= f.input :work_start_time %>
+<%= f.input :job_name %>
+<%= f.input :state %>
+<%= f.input :address %>
+<%= f.input :wage_lower_bound, :label => "薪资下限" %>
+<%= f.input :wage_upper_bound, :label => "薪资上限" %>
+<%= f.input :description %>
+  <%= f.submit "Submit" %>
+<% end %>

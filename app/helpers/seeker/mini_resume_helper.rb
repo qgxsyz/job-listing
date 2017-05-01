@@ -1,0 +1,2 @@
+module Seeker::MiniResumeHelper
+end

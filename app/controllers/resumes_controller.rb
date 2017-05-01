@@ -20,7 +20,6 @@ class ResumesController < ApplicationController
     end
   end
 
-
   private
 
   def resume_params

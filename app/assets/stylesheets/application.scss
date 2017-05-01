@@ -18,6 +18,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ //common css
+ html, body{
+   height: 100%;
+ }
+ .common-height100{
+   height: 100%;
+ }
+ .min-height100{
+   min-height: 100%;
+ }
+
+ a{
+   cursor: pointer;
+ }
+
 // jumbotron
  .jumbotron {
    background-image:url('banner.jpeg');
@@ -58,18 +73,72 @@
  }
 
 
-// company
- .caption {
-   margin: 30px;
-   text-align: center;
-   top: 20px;
- }
+// description
+.description{
+  .item{
+    padding: 80px 0;
+    overflow: hidden;
+    .pic-box{
+      margin-top: 30px;
+      img{
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .title{
+      color: #363636;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 1.2em;
+    }
+    .detail{
+      line-height: 2em;
+      margin-top: 2em;
+      color: #969696;
+    }
+  }
+  .manuals{
+    .section-title{
+      font-size: 30px;
+      font-weight: 300;
+      margin: 50px auto 50px;
+    }
+    .manual-list{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      .manual-item{
+        flex: 1;
+        width: 190px;
+        height: 190px;
+        margin: 5px;
+        background: #f8f8f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        img{
+          width: 100px;
+        }
+      }
+    }
+  }
+  .thanks{
+    margin-bottom: 100px;
+    .title{
+      font-size: 30px;
+      font-weight: 300;
+      margin: 130px auto 40px;
+    }
+    .thanks-wrapper{
+      img{
+        margin: 25px 15px 35px 15px;
+        width: 150px;
 
- .thumbnail {
-     border: 0 none;
-     box-shadow: none;
-     margin-top: 60px;
- }
+      }
+    }
+  }
+}
 
 //admin/jobs
  .custab{
@@ -105,7 +174,7 @@
 
 // 修改 Logo 字体颜色和对齐样式
   .navbar-default .navbar-brand {
-    color: #EF6C00; //字体颜色
+    color: #c8c8c8; //字体颜色
 
     padding: 10px 15px; //上下10px，左右15px
     line-height: 30px; //文字行高
@@ -113,37 +182,37 @@
 
   .navbar-default .navbar-brand:hover,
   .navbar-default .navbar-brand:focus {
-    color: #FF6F00; //鼠标放置在链接上的文字颜色
+    color: #fff; //鼠标放置在链接上的文字颜色
 
     background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
   }
 
 // 修改导航栏链接颜色
    .navbar-default .navbar-nav > li > a{
-     color: #EF6C00;
+     color: #c8c8c8;
 
    }
 
    .navbar-default .navbar-nav > li > a:hover,
    .navbar-default .navbar-nav > li > a:focus {
-     color: #FF6F00;
+     color: #fff;
 
      background-color: transparent;
    }
    .navbar-default .navbar-nav > .active > a,
    .navbar-default .navbar-nav > .active > a:hover,
    .navbar-default .navbar-nav > .active > a:focus {
-     color: #FF6F00;
+     color: #fff;
 
-     background-color: #FFE0B2;
+     background-color: #212121;
 
    }
 
    .navbar-default .navbar-nav > .open > a,
    .navbar-default .navbar-nav > .open > a:focus,
    .navbar-default .navbar-nav > .open > a:hover {
-     background-color: #FFE0B2;
-     color: #212121;
+     background-color: #212121;
+     color: #fff;
    }
 
 // 让大图满屏显示
@@ -218,3 +287,41 @@
          }
        }
    }
+  //  footer css
+  .footer{
+    height: 70px;
+    margin-top: -70px;
+    border-top: 1px solid #ebebeb;
+    .wrapper{
+      margin: 0 auto;
+      .inner_wrapper{
+        margin-top: 12px;
+        text-align: center;
+        height: 14px;
+        line-height: 14px;
+        white-space: nowrap;
+        a{
+          margin-right: 14px;
+          color: #555;
+          font-size: 14px;
+          text-decoration: none;
+        }
+      }
+      .copyright{
+        clear: both;
+        height: 12px;
+        margin: 0 auto;
+        padding-top: 13px;
+        padding-bottom: 14px;
+        color: #d5d5d5;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+        span{
+          padding-right: 0;
+          font-size: 12px;
+          color: #d5d5d5;
+        }
+      }
+    }
+  }

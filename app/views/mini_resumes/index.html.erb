@@ -1,0 +1,47 @@
+<div class="container">
+  <table class="table table-boldered">
+    <thead>
+      <tr>
+        <td>
+          姓名
+        </td>
+
+        <td>
+          性别
+        </td>
+        <td>生日</td>
+        <td>开始工作时间</td>
+        <td>
+          应聘职位
+        </td>
+
+        <td>
+          薪资下限
+        </td>
+        <td>
+          薪资上限
+        </td>
+
+        <td>
+          刊登时间
+        </td>
+      </tr>
+      <% @mini_resumes.each do |mini_resume| %>
+      <tr>
+
+        <td>
+          <%= link_to(mini_resume.name, mini_resume_path(mini_resume)) %>
+        </td>
+        <td> <%= mini_resume.sex %> </td>
+        <td> <%= mini_resume.birthday %> </td>
+        <td> <%= mini_resume.work_start_time %> </td>
+        <td> <%= mini_resume.job_name %> </td>
+        <td> <%= mini_resume.wage_lower_bound %> </td>
+        <td> <%= mini_resume.wage_upper_bound %> </td>
+        <td>
+          <%= mini_resume.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</div>

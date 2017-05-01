@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  job_name: MyString
+  sex: 1
+  birthday: MyString
+  work_start_time: MyString
+  state: 1
+  address: MyString
+  wage_upper_bound: 1
+  wage_lower_bound: 1
+  description: MyText
+  user_id: 1
+
+two:
+  name: MyString
+  job_name: MyString
+  sex: 1
+  birthday: MyString
+  work_start_time: MyString
+  state: 1
+  address: MyString
+  wage_upper_bound: 1
+  wage_lower_bound: 1
+  description: MyText
+  user_id: 1

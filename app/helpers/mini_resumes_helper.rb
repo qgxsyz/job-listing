@@ -1,0 +1,2 @@
+module MiniResumesHelper
+end

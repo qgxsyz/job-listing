@@ -1,0 +1,2 @@
+module Collect::MiniResumesHelper
+end

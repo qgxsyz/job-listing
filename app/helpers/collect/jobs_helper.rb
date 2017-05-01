@@ -1,0 +1,2 @@
+module Collect::JobsHelper
+end

@@ -1,0 +1,19 @@
+<h1> 他的微简历 </h1>
+
+<p>求职者：<%= @mini_resume.name %></p>
+<p><%= @mini_resume.sex %></p>
+<p><%= @mini_resume.birthday %></p>
+<p><%= @mini_resume.work_start_time %></p>
+<p><%= @mini_resume.job_name %></p>
+<p><%= @mini_resume.state %></p>
+<p><%= @mini_resume.address %></p>
+<p><%= @mini_resume.wage_lower_bound %> 到 <%= @mini_resume.wage_upper_bound %> </p>
+<p><%= @mini_resume.description %></p>
+
+<div class="text-center">
+  <% if current_user && current_user.is_collected_mini_resume?(@mini_resume) %>
+  <%= link_to("取消收藏", discollect_mini_resume_path(@mini_resume), method: :post, class:"btn btn-default") %>
+  <% else %>
+  <%= link_to("收藏", collect_mini_resume_path(@mini_resume), method: :post, class:"btn btn-default") %>
+  <% end %>
+</div>
