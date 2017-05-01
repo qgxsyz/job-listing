@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <h3> <%= @job.title %> </h3>
     <div class="job_request">
       <p>
@@ -16,7 +16,7 @@
     </p>
 
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <br>
     <% if current_user && current_user.is_collected_job?(@job) %>
     <%= link_to("取消收藏", discollect_job_path(@job), method: :post, class:"btn btn-default") %>
@@ -24,9 +24,9 @@
     <%= link_to("收藏", collect_job_path(@job), method: :post, class:"btn btn-default") %>
     <% end %>
     <% if @resumes.count > 0%>
-    <button class="btn btn-primary disabled">已投交</button>
+    <button class="btn btn-primary disabled">已发送</button>
     <% else %>
-    <%= link_to("投交简历", new_job_resume_path(@job), class:"btn btn-primary") %>
+    <%= link_to("投个简历", new_job_resume_path(@job), class:"btn btn-primary") %>
     <% end %>
   </div>
 
