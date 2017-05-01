@@ -8,43 +8,51 @@
     <thead >
         <tr class="active">
             <td>职位</td>
-            <td>收到履历数量</td>
-            <td>对我感兴趣</td>
+            <td>简历/收藏</td>
+            <td>工作地点</td>
+            <td>职位类型</td>
             <td>薪资范围</td>
             <td>发布时间</td>
             <td>所有职位：<%= @jobs.count %></td>
-            <td>管理</td>
         </tr>
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
       <tr>
         <td>
-          <%= render_job_status(job) %>
           <%= link_to(job.title, admin_job_path(job)) %>
         </td>
-        <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
-        <td> <%= link_to(job.job_collectors.count, admin_job_users_path(job)) %> </td>
-        <td> <%= job.wage_lower_bound %> </td>
-        <td> <%= job.wage_upper_bound %> </td>
+
+        <td> <%= link_to(admin_job_resumes_path(job)) do%>
+          <%= render_resumes_count(job) %>
+          <% end %>
+           / <%= link_to(admin_job_users_path(job)) do%>
+            <%= render_collectors_count(job) %>
+            <% end %>
+         </td>
+
+        <td><sapn class="fa fa-map-marker"></sapn> <%= job.location %> </td>
+        <td> <%= job.category %> </td>
+        <td> <%= render_job_wage(job) %></td>
         <td>
           <%= job.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
         </td>
         <td>
           <div class="btn-group btn-group-xs">
-            <%= link_to(edit_admin_job_path(job), :title => "编辑", :class => "btn btn-xs btn-default") do%>
-              <span class="fa fa-edit"></span>
+
+            <%= link_to(edit_admin_job_path(job), :class => "btn btn-xs btn-default") do%>
+              <span class="fa fa-edit" title ="编辑"></span>
             <% end %>
-            <%= link_to(admin_job_path(job), :method => :delete, :title => "删除", :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) do%>
-              <span class="fa fa-remove"></span>
+            <%= link_to(admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) do%>
+              <span class="fa fa-remove" title="删除"></span>
             <% end %>
             <% if job.is_hidden %>
-              <%= link_to(publish_admin_job_path(job) , :method => :post, :title => "隐藏", :class => "btn btn-xs btn-default") do%>
-                <span class="fa fa-eye"></span>
+              <%= link_to(publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-default") do%>
+                <span class="fa fa-eye" title="点击显示该职位"></span>
               <% end %>
             <% else %>
-              <%= link_to(hide_admin_job_path(job), :method => :post, :title => "显示", :class => "btn btn-xs btn-default") do%>
-              <span class="fa fa-eye-slash"></span>
+              <%= link_to(hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-default") do%>
+              <span class="fa fa-eye-slash" title="点击隐藏该职位"></span>
               <% end%>
             <% end %>
           </div>

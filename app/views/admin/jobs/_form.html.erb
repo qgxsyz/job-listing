@@ -1,0 +1,36 @@
+<%= simple_form_for [:admin, @job ] do |f| %>
+
+<%= f.input :title, :label => "职位名称"%>
+
+<% if @job.category? %>
+<%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "职能", "其他"], :checked => @job.category %>
+<% else %>
+<%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "职能", "其他"] %>
+<% end %>
+
+<%= f.input :description, :label => "职位描述"%>
+<%= f.input :wage_lower_bound, :label => "薪资下限" %>
+<%= f.input :wage_upper_bound, :label => "薪资上限" %>
+<%= f.input :contact_email, :label => "联系邮箱" %>
+
+<% if @job.location? %>
+<%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "其他"], :checked => @job.location%>
+<% else %>
+<%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "其他"]%>
+<% end %>
+
+<% if @job.exprience? %>
+<%= f.input :exprience, :label => "工作经验", :collection => ["无工作经验", "1~3年", "3~5年", "5~10年", "10年以上"], :checked => @job.exprience %>
+<% else %>
+<%= f.input :exprience, :label => "工作经验", :collection => ["无工作经验", "1~3年", "3~5年", "5~10年", "10年以上"] %>
+<% end %>
+
+<% if @job.education? %>
+  <%= f.input :education, :label => "教育水平", :collection => ["中专及以下", "大专", "本科", "硕士", "博士及以上"], :checked => @job.education%>
+<% else %>
+<%= f.input :education, :label => "教育水平", :collection => ["中专及以下", "大专", "本科", "硕士", "博士及以上"]%>
+<% end %>
+
+<%= f.input :is_hidden %>
+<%= f.submit "Submit" %>
+<% end %>
