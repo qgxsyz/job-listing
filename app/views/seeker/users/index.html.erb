@@ -1,34 +1,30 @@
-<table class="table table-boldered">
+<div class="container">
+  <br>
+  <table class="table table-hover admin-job-table">
   <thead>
-        <tr>
-            <td>
-                职缺
-            </td>
-
-            <td>
-                薪资下限
-            </td>
-            <td>
-                薪资上限
-            </td>
-
-            <td>
-                刊登时间
-            </td>
-        </tr>
-<% @users.each do |user| %>
-  <% user.jobs.each do |job| %>
-  <tr>
-    <td>
-      <%= render_job_status(job) %>
-      <%= link_to(job.title, admin_job_path(job)) %>
-    </td>
-    <td> <%= job.wage_lower_bound %> </td>
-    <td> <%= job.wage_upper_bound %> </td>
-    <td>
-      <%= job.created_at %>
-    </td>
-  </tr>
-  <% end %>
-  <% end %>
+    <tr class="active">
+        <td>职缺</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>刊登时间</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% user.jobs.each do |job| %>
+      <tr>
+        <td>
+          <%= render_job_status(job) %>
+          <%= link_to(job.title, admin_job_path(job)) %>
+        </td>
+        <td> <%= job.wage_lower_bound %> </td>
+        <td> <%= job.wage_upper_bound %> </td>
+        <td>
+          <%= job.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
+</div>

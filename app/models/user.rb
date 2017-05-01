@@ -37,7 +37,6 @@ class User < ApplicationRecord
     collected_mini_resumes.delete(mini_resume)
   end
 
-
   def admin?
     is_admin
   end

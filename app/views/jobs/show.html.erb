@@ -1,27 +1,33 @@
 <div class="container">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <h3> <%= @job.title %> </h3>
     <div class="job_request">
       <p>
           <span class="salary"><%= @job.wage_lower_bound %>k-<%= @job.wage_upper_bound %>k </span>
           <span>/<%= @job.location %> /</span>
           <span><%= @job.exprience %> /</span>
-          <span><%= @job.education %> /</span>
+          <span><%= @job.education %></span>
       </p>
     </div>
+    <br>
+    <h4>职位描述：</h4>
     <p>
       <%= simple_format(@job.description) %>
     </p>
-  
+
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <br>
     <% if current_user && current_user.is_collected_job?(@job) %>
     <%= link_to("取消收藏", discollect_job_path(@job), method: :post, class:"btn btn-default") %>
     <% else %>
     <%= link_to("收藏", collect_job_path(@job), method: :post, class:"btn btn-default") %>
     <% end %>
-    <%= link_to("投交简历", new_job_resume_path(@job), class:"btn btn-primary") %>
+    <% if @resumes.count > 0%>
+    <button class="btn btn-primary disabled">已发送</button>
+    <% else %>
+    <%= link_to("投个简历", new_job_resume_path(@job), class:"btn btn-primary") %>
+    <% end %>
   </div>
 
 </div>

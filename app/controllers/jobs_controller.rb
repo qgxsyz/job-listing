@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :collect_job, :discollect_job]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :collect, :discollect]
   def index
     # 判断是否筛选城市 #
   if params[:location].present?
@@ -27,7 +27,8 @@ end
 
   def show
     @job = Job.find(params[:id])
-
+    @resumes = Resume.where(:job => @job, :user => current_user)
+    
     if @job.is_hidden
       flash[:warning] = "This Job already archived"
       redirect_to root_path

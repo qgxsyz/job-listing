@@ -1,10 +1,11 @@
-<h3> 投交履历到 <%= @job.title %> </h3>
-
-<hr>
-
-<%= simple_form_for [@job, @resume] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :attachment %>
-
-  <%= f.submit "送出" %>
-<% end %>
+<div class="container">
+  <h3 class="text-center"> 投交履历到 <%= @job.title %> </h3>
+  <hr>
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for [@job, @resume] do |f| %>
+      <%= f.input :content, :label => "内容" %>
+      <%= f.input :attachment, :label => "附件" %>
+      <%= f.submit "送出", disable_with: "Submiting...", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
