@@ -1,14 +1,18 @@
-<%= simple_form_for [:seeker, @mini_resume] do |f| %>
-
-<%= f.input :name %>
-<%= f.input :sex %>
-<%= f.input :birthday %>
-<%= f.input :work_start_time %>
-<%= f.input :job_name %>
-<%= f.input :state %>
-<%= f.input :address %>
-<%= f.input :wage_lower_bound, :label => "薪资下限" %>
-<%= f.input :wage_upper_bound, :label => "薪资上限" %>
-<%= f.input :description %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for [:seeker, @mini_resume] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :sex %>
+    <%= f.input :birthday %>
+    <%= f.input :work_start_time %>
+    <%= f.input :job_name %>
+    <%= f.input :state %>
+    <%= f.input :address %>
+    <%= f.input :wage_lower_bound, :label => "薪资下限" %>
+    <%= f.input :wage_upper_bound, :label => "薪资上限" %>
+    <%= f.input :description, rows: "4"%>
+      <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
+    <% end %>
+    <div style="height: 100px;"></div>
+  </div>
+</div>

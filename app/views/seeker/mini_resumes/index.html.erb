@@ -1,61 +1,54 @@
-<div class="pull-right">
-  <%= link_to("添加一个微简历", new_seeker_mini_resume_path, :class => "btn btn-default" ) %>
-</div>
-
-<br><br>
-
-<table class="table table-boldered">
+<div class="container">
+  <br>
+  <div class="pull-right">
+    <%= link_to("添加一个微简历", new_seeker_mini_resume_path, :class => "btn btn-default" ) %>
+  </div>
+  <br><br>
+  <table class="table table-hover admin-job-table">
   <thead>
-        <tr>
-            <td>
-                姓名
-            </td>
-            <td>对我感兴趣</td>
-            <td>
-              性别
-            </td>
-            <td>生日</td>
-            <td>开始工作时间</td>
-            <td>
-              应聘职位
-            </td>
+    <tr class="active">
+        <td>姓名</td>
+        <td>对我感兴趣</td>
+        <td>性别</td>
+        <td>生日</td>
+        <td>开始工作时间</td>
+        <td>应聘职位</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>管理选项</td>
+        <td>刊登时间</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @mini_resumes.each do |mini_resume| %>
+    <tr>
 
-            <td>
-                薪资下限
-            </td>
-            <td>
-                薪资上限
-            </td>
-            <td>
-                管理选项
-            </td>
-            <td>
-                刊登时间
-            </td>
-        </tr>
-<% @mini_resumes.each do |mini_resume| %>
-  <tr>
+      <td>
+        <%= link_to(mini_resume.name, seeker_mini_resume_path(mini_resume)) %>
+      </td>
+      <td>
+        <%= link_to(mini_resume.mini_resume_collectors.count, seeker_mini_resume_users_path(mini_resume)) %>
+      </td>
 
-    <td>
-      <%= link_to(mini_resume.name, seeker_mini_resume_path(mini_resume)) %>
-    </td>
-    <td>
-      <%= link_to(mini_resume.mini_resume_collectors.count, seeker_mini_resume_users_path(mini_resume)) %>
-    </td>
-
-    <td> <%= mini_resume.sex %> </td>
-    <td> <%= mini_resume.birthday %> </td>
-    <td> <%= mini_resume.work_start_time %> </td>
-    <td> <%= mini_resume.job_name %> </td>
-        <td> <%= mini_resume.wage_lower_bound %> </td>
-        <td> <%= mini_resume.wage_upper_bound %> </td>
-    <td>
-      <%= link_to("编辑", edit_seeker_mini_resume_path(mini_resume), :class => "btn btn-xs btn-default") %>
-      <%= link_to("删除", seeker_mini_resume_path(mini_resume), :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) %>
-    </td>
-    <td>
-      <%= mini_resume.created_at %>
-    </td>
-  </tr>
-<% end %>
+      <td> <%= mini_resume.sex %> </td>
+      <td> <%= mini_resume.birthday %> </td>
+      <td> <%= mini_resume.work_start_time %> </td>
+      <td> <%= mini_resume.job_name %> </td>
+          <td> <%= mini_resume.wage_lower_bound %> </td>
+          <td> <%= mini_resume.wage_upper_bound %> </td>
+      <td>
+        <%= link_to(edit_seeker_mini_resume_path(mini_resume), title: "编辑", :class => "btn btn-xs btn-default") do %>
+          <span class="fa fa-edit"></span>
+        <% end %>
+        <%= link_to(seeker_mini_resume_path(mini_resume), title: "删除", :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) do %>
+          <span class="fa fa-remove"></span>
+        <% end %>
+      </td>
+      <td>
+        <%= mini_resume.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
+</div>

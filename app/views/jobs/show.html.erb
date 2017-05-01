@@ -1,22 +1,27 @@
-<h1> <%= @job.title %> </h1>
+<div class="container">
+  <div class="col-md-10">
+    <h3> <%= @job.title %> </h3>
+    <div class="job_request">
+      <p>
+          <span class="salary"><%= @job.wage_lower_bound %>k-<%= @job.wage_upper_bound %>k </span>
+          <span>/<%= @job.location %> /</span>
+          <span><%= @job.exprience %> /</span>
+          <span><%= @job.education %> /</span>
+      </p>
+    </div>
+    <p>
+      <%= simple_format(@job.description) %>
+    </p>
+  
+  </div>
+  <div class="col-md-2">
+    <br>
+    <% if current_user && current_user.is_collected_job?(@job) %>
+    <%= link_to("取消收藏", discollect_job_path(@job), method: :post, class:"btn btn-default") %>
+    <% else %>
+    <%= link_to("收藏", collect_job_path(@job), method: :post, class:"btn btn-default") %>
+    <% end %>
+    <%= link_to("投交简历", new_job_resume_path(@job), class:"btn btn-primary") %>
+  </div>
 
-<p>
-  <%= simple_format(@job.description) %>
-
-</p>
-
-<%= @job.wage_lower_bound %>
-<%= @job.wage_upper_bound %>
-<%= @job.contact_email %>
-<%= @job.location %>
-<%= @job.exprience %>
-<%= @job.education %>
-
-<div class="text-center">
-  <% if current_user && current_user.is_collected_job?(@job) %>
-  <%= link_to("取消收藏", discollect_job_path(@job), method: :post, class:"btn btn-default") %>
-  <% else %>
-  <%= link_to("收藏", collect_job_path(@job), method: :post, class:"btn btn-default") %>
-  <% end %>
-  <%= link_to("投交简历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration: underline;") %>
 </div>
