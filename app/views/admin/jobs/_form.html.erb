@@ -1,6 +1,6 @@
 <%= simple_form_for [:admin, @job ] do |f| %>
 
-<%= f.input :title, :label => "职位名称"%>
+<%= f.input :title, :label => "职位名称", :placeholder => "请输入职位名称"%>
 
 <% if @job.category? %>
 <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "职能", "其他"], :checked => @job.category %>
@@ -8,7 +8,7 @@
 <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "职能", "其他"] %>
 <% end %>
 
-<%= f.input :description, :label => "职位描述"%>
+<%= f.input :description, :label => "职位描述", :placeholder => "请输入选择职位描述"%>
 <%= f.input :wage_lower_bound, :label => "薪资下限" %>
 <%= f.input :wage_upper_bound, :label => "薪资上限" %>
 <%= f.input :contact_email, :label => "联系邮箱" %>
@@ -34,3 +34,4 @@
 <%= f.input :is_hidden %>
 <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary" %>
 <% end %>
+<br>
