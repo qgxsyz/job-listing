@@ -14,6 +14,9 @@
         <td>
           应聘职位
         </td>
+        <td>状态</td>
+        <td>地址</td>
+        <td>工作经历</td>
 
         <td>
           薪资下限
@@ -23,7 +26,7 @@
         </td>
 
         <td>
-          刊登时间
+          创建时间
         </td>
       </tr>
       <% @mini_resumes.each do |mini_resume| %>
@@ -36,6 +39,9 @@
         <td> <%= mini_resume.birthday %> </td>
         <td> <%= mini_resume.work_start_time %> </td>
         <td> <%= mini_resume.job_name %> </td>
+        <td> <%= mini_resume.state %> </td>
+        <td> <%= mini_resume.address %> </td>
+        <td> <%= mini_resume.description %> </td>
         <td> <%= mini_resume.wage_lower_bound %> </td>
         <td> <%= mini_resume.wage_upper_bound %> </td>
         <td>
