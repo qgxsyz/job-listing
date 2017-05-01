@@ -1,11 +1,16 @@
-<h1> 我的微简历 </h1>
-
-<p>求职者：<%= @mini_resume.name %></p>
-<p><%= @mini_resume.sex %></p>
-<p><%= @mini_resume.birthday %></p>
-<p><%= @mini_resume.work_start_time %></p>
-<p><%= @mini_resume.job_name %></p>
-<p><%= @mini_resume.state %></p>
-<p><%= @mini_resume.address %></p>
-<p><%= @mini_resume.wage_lower_bound %> 到 <%= @mini_resume.wage_upper_bound %> </p>
-<p><%= @mini_resume.description %></p>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <h3> 我的微简历 </h3>
+    <p>求职者：<%= @mini_resume.name %></p>
+    <p>性别：<%= @mini_resume.sex %></p>
+    <p>生日：<%= @mini_resume.birthday %></p>
+    <p>开始工作时间：<%= @mini_resume.work_start_time %></p>
+    <p>职位：<%= @mini_resume.job_name %></p>
+    <p>状态：<%= @mini_resume.state %></p>
+    <p>地址：<%= @mini_resume.address %></p>
+    <p>薪资范围：<%= @mini_resume.wage_lower_bound %> 到 <%= @mini_resume.wage_upper_bound %> </p>
+    <p>描述：<%= @mini_resume.description %></p>
+    <br>
+    <br>
+  </div>
+</div>
