@@ -32,5 +32,5 @@
 <% end %>
 
 <%= f.input :is_hidden %>
-<%= f.submit "Submit" %>
+<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary" %>
 <% end %>
