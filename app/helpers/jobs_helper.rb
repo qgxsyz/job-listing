@@ -34,5 +34,8 @@ module JobsHelper
     end
   end
 
+  def render_job_time(job)
+    job.created_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430095745) do
+ActiveRecord::Schema.define(version: 20170501115820) do
 
   create_table "job_collections", force: :cascade do |t|
     t.integer  "job_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170430095745) do
     t.string   "education"
     t.string   "exprience"
     t.string   "category"
+    t.string   "company"
   end
 
   create_table "mini_resume_collections", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170430095745) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "email"
   end
 
   create_table "resumes", force: :cascade do |t|

@@ -32,14 +32,9 @@
           <%= link_to("杭州", jobs_path(:location => "杭州")) %>
         </li>
         <li>
-          <%= link_to("成都", jobs_path(:location => "成都")) %>
+          <%= link_to("杭州", jobs_path(:location => "其他")) %>
         </li>
-        <li>
-          <%= link_to("香港", jobs_path(:location => "香港")) %>
-        </li>
-        <li>
-          <%= link_to("海外", jobs_path(:location => "海外")) %>
-        </li>
+
         <li>
           <%= link_to("所有城市", jobs_path(:location => "所有城市") ) %>
         </li>
@@ -72,9 +67,6 @@
         </li>
         <li>
           <%= link_to("市场", jobs_path(:category => "市场")) %>
-        </li>
-        <li>
-          <%= link_to("销售", jobs_path(:category => "销售")) %>
         </li>
         <li>
           <%= link_to("职能", jobs_path(:category => "职能")) %>
@@ -120,30 +112,29 @@
   </div>
   <br>
   <br>
-  <!-- 职位列表 -->
-  <table class="table table-hover admin-job-table">
-    <thead>
-        <tr class="active">
-          <td>职位</td>
-          <td>薪资上限</td>
-          <td>薪资下限</td>
-          <td>刊登时间</td>
-        </tr>
-      </thead>
-    <tbody>
 
-    </tbody>
+  <!-- 职位列表 -->
+  <ul class="job-list">
     <% @jobs.each do |job| %>
-    <tr>
-      <td><%= link_to(job.title, job_path(job)) %></td>
-      <td><%= job.wage_upper_bound %></td>
-      <td><%= job.wage_lower_bound %></td>
-      <td>
-        <%= job.created_at %>
-      </td>
-    </tr>
+    <li class="job-item">
+      <div class="job-primary">
+          <div class="info-primary">
+              <h3 class="name"><%= link_to(job.title, job_path(job)) %> <span class="red"><%= render_job_wage(job) %></span></h3>
+              <p><sapn class="fa fa-map-marker"></sapn> <%= job.location %><em class="vline"></em><%= job.exprience %><em class="vline"></em><%= job.education %></p>
+          </div>
+          <div class="info-comapny">
+              <div class="company-text">
+                  <h3 class="name">新生大学</h3>
+                  <p><span class="fa fa-envelope"></span> <%= job.contact_email %></p>
+              </div>
+          </div>
+      </div>
+      <div class="job-time"><span class="time">发布于 <%= render_job_time(job) %></span></div>
+
+    </li>
     <% end %>
-  </table>
+  </ul>
+
   <!--=== 分页区块 ===-->
   <div class="col-md-10 col-md-offset-1 job-bottom">
     <div class="text-center">
