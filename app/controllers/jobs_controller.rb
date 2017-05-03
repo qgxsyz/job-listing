@@ -19,6 +19,23 @@ class JobsController < ApplicationController
       @jobs = Job.where(:is_hidden => false, :category => @category).recent.paginate(:page => params[:page], :per_page => 10)
     end
 
+    # 判断是否筛选薪水 #
+    elsif params[:wage].present?
+      @wage = params[:wage]
+      if @wage == '5k以下'
+        @jobs = Job.published.wage1.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '5~10k'
+        @jobs = Job.published.wage2.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '10~15k'
+        @jobs = Job.published.wage3.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '15~25k'
+        @jobs = Job.published.wage4.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '25k以上'
+        @jobs = Job.published.wage5.recent.paginate(:page => params[:page], :per_page => 10)
+      else
+        @jobs = Job.published.recent.paginate(:page => params[:page], :per_page => 10)
+      end
+
     # 预设显示所有公开职位 #
   else
     @jobs = Job.published.recent.paginate(:page => params[:page], :per_page => 10)
@@ -28,7 +45,7 @@ end
   def show
     @job = Job.find(params[:id])
     @resumes = Resume.where(:job => @job, :user => current_user)
-    
+
     if @job.is_hidden
       flash[:warning] = "This Job already archived"
       redirect_to root_path

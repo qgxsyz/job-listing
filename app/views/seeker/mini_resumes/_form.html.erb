@@ -7,11 +7,20 @@
     <%= f.input :work_start_time, :label => "开始工作时间:"%>
     <%= f.input :job_name, :label => "职位:"%>
     <%= f.input :state, :label => "当前状态:", :collection =>{"离职":0,"在职":1}%>
-    <%= f.input :address, :label => "地址:"%>
-    <%= f.input :wage_lower_bound, :label => "薪资下限:" %>
-    <%= f.input :wage_upper_bound, :label => "薪资上限:" %>
-    <%= f.input :description%>
-      <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
+
+    <% if @mini_resume.address? %>
+    <%= f.input :address, :label => "期望工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "其他"], :checked => @mini_resume.address%>
+    <% else %>
+    <%= f.input :address, :label => "期望工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "其他"]%>
+    <% end %>
+
+    <%= f.input :wage_lower_bound, :label => '薪资要求:' do %>
+       <%= f.input_field :wage_lower_bound, :as => :string, style: "width:50px;border-radius:5px" %> <span class="wage-form">k ~</span>
+       <%= f.input_field :wage_upper_bound, :as => :string, style: "width:50px;border-radius:5px" %> <span class="wage-form">k</span>
+    <% end %>
+    <%= f.input :email, :label => "联系邮箱" %>
+    <%= f.input :description, label: "工作经验:"%>
+      <%= f.submit "保存", disable_with: "Submiting...", class: "btn btn-primary"%>
     <% end %>
     <div style="height: 100px;"></div>
   </div>

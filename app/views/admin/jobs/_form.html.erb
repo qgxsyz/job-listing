@@ -1,5 +1,6 @@
 <%= simple_form_for [:admin, @job ] do |f| %>
 
+<%= f.input :company, :label => "公司名称", :placeholder => "请输入公司名称"%>
 <%= f.input :title, :label => "职位名称", :placeholder => "请输入职位名称"%>
 
 <% if @job.category? %>
@@ -9,8 +10,10 @@
 <% end %>
 
 <%= f.input :description, :label => "职位描述", :placeholder => "请输入选择职位描述"%>
-<%= f.input :wage_lower_bound, :label => "薪资下限" %>
-<%= f.input :wage_upper_bound, :label => "薪资上限" %>
+<%= f.input :wage_lower_bound, :label => '薪资' do %>
+   <%= f.input_field :wage_lower_bound, :as => :string, style: "width:50px;border-radius:5px" %> <span class="wage-form">k ~</span>
+   <%= f.input_field :wage_upper_bound, :as => :string, style: "width:50px;border-radius:5px" %> <span class="wage-form">k</span>
+<% end %>
 <%= f.input :contact_email, :label => "联系邮箱" %>
 
 <% if @job.location? %>
@@ -31,7 +34,7 @@
 <%= f.input :education, :label => "教育水平", :collection => ["中专及以下", "大专", "本科", "硕士", "博士及以上"]%>
 <% end %>
 
-<%= f.input :is_hidden %>
-<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary" %>
+<%= f.input :is_hidden, :label => "是否隐藏职位"%>
+<%= f.submit "保存", disable_with: "Submiting...", class: "btn btn-primary" %>
 <% end %>
 <br>

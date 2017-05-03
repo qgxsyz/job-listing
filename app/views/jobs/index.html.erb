@@ -1,8 +1,5 @@
 <div class="container">
   <br>
-  <% if @jobs.count == 0 %>
-  <h4 class="text-center text-danger">没有最新的职位</h4>
-  <% else %>
   <div class="row col-md-12 btn-group select-job-box">
     <!--=== 工作地点下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
@@ -107,12 +104,18 @@
         <li>
           <%= link_to("25k以上", jobs_path(:wage => "25k以上")) %>
         </li>
+        <li>
+          <%= link_to("所有薪资", jobs_path(:wage => "所有薪资")) %>
+        </li>
       </ul>
     </div>
   </div>
   <br>
   <br>
 
+  <% if @jobs.count == 0 %>
+  <h4 class="text-center text-danger">没有符合条件的职位哦~</h4>
+  <% else %>
   <!-- 职位列表 -->
   <ul class="job-list">
     <% @jobs.each do |job| %>

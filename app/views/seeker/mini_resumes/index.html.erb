@@ -1,7 +1,7 @@
 <div class="container">
   <br>
   <div class="pull-right">
-    <%= link_to("添加一个微简历", new_seeker_mini_resume_path, :class => "btn btn-default" ) %>
+    <%= link_to(" 添加一个微简历", new_seeker_mini_resume_path, :class => "btn btn-primary fa fa-plus" ) %>
   </div>
   <br><br>
   <table class="table table-hover admin-job-table">
@@ -13,10 +13,9 @@
         <td>生日</td>
         <td>开始工作时间</td>
         <td>应聘职位</td>
-        <td>薪资下限</td>
-        <td>薪资上限</td>
+        <td>薪资要求</td>
+        <td>发布时间</td>
         <td>管理选项</td>
-        <td>刊登时间</td>
     </tr>
   </thead>
   <tbody>
@@ -27,25 +26,26 @@
         <%= link_to(mini_resume.name, seeker_mini_resume_path(mini_resume)) %>
       </td>
       <td>
-        <%= link_to(mini_resume.mini_resume_collectors.count, seeker_mini_resume_users_path(mini_resume)) %>
+        <%= link_to(seeker_mini_resume_users_path(mini_resume)) do%>
+          <%= render_mini_resume_collectors_count(mini_resume) %>
+        <% end %>
       </td>
 
-      <td> <%= mini_resume.sex %> </td>
+      <td> <%= render_mini_resume_sex(mini_resume) %> </td>
       <td> <%= mini_resume.birthday %> </td>
       <td> <%= mini_resume.work_start_time %> </td>
       <td> <%= mini_resume.job_name %> </td>
-          <td> <%= mini_resume.wage_lower_bound %> </td>
-          <td> <%= mini_resume.wage_upper_bound %> </td>
-      <td>
-        <%= link_to(edit_seeker_mini_resume_path(mini_resume), title: "编辑", :class => "btn btn-xs btn-default") do %>
-          <span class="fa fa-edit"></span>
-        <% end %>
-        <%= link_to(seeker_mini_resume_path(mini_resume), title: "删除", :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) do %>
-          <span class="fa fa-remove"></span>
-        <% end %>
-      </td>
+      <td> <%= render_mini_resume_wage(mini_resume)%> </td>
       <td>
         <%= mini_resume.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      </td>
+      <td>
+        <%= link_to(edit_seeker_mini_resume_path(mini_resume), title: "编辑", :class => "btn btn-xs btn-default") do %>
+        <span class="fa fa-edit"></span>
+        <% end %>
+        <%= link_to(seeker_mini_resume_path(mini_resume), title: "删除", :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) do %>
+        <span class="fa fa-remove"></span>
+        <% end %>
       </td>
     </tr>
   <% end %>

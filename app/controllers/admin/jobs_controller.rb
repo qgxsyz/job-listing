@@ -59,7 +59,7 @@ end
 
   private
   def job_params
-    params.require(:job).permit(:title, :category, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :location, :exprience, :education, :is_hidden)
+    params.require(:job).permit(:company, :title, :category, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :location, :exprience, :education, :is_hidden)
   end
 
 end

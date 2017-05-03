@@ -1,5 +1,81 @@
 <div class="container">
   <br>
+  <div class="row col-md-12 btn-group select-job-box">
+    <!--=== 工作地点下拉选单 ===-->
+    <div class="dropdown btn-group clearfix">
+      <% if params[:address].present? %>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= params[:address] %> <span class="caret"></span>
+      </button>
+      <% else %>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        工作城市 <span class="caret"></span>
+      </button>
+      <% end %>
+      <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+        <li>
+          <%= link_to("北京", mini_resumes_path(:address => "北京")) %>
+        </li>
+        <li>
+          <%= link_to("上海", mini_resumes_path(:address => "上海")) %>
+        </li>
+        <li>
+          <%= link_to("深圳", mini_resumes_path(:address => "深圳")) %>
+        </li>
+        <li>
+          <%= link_to("广州", mini_resumes_path(:address => "广州")) %>
+        </li>
+        <li>
+          <%= link_to("杭州", mini_resumes_path(:address => "杭州")) %>
+        </li>
+        <li>
+          <%= link_to("杭州", mini_resumes_path(:address => "其他")) %>
+        </li>
+
+        <li>
+          <%= link_to("所有城市", mini_resumes_path(:address => "所有城市") ) %>
+        </li>
+      </ul>
+    </div>
+
+    <!--=== 月薪下拉选单 ===-->
+    <div class="dropdown btn-group clearfix">
+      <% if params[:wage].present? %>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= params[:wage] %> <span class="caret"></span>
+      </button>
+      <% else %>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        月薪 <span class="caret"></span>
+      </button>
+      <% end %>
+      <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+        <li>
+          <%= link_to("5k以下", mini_resumes_path(:wage => "5k以下")) %>
+        </li>
+        <li>
+          <%= link_to("5~10k", mini_resumes_path(:wage => "5~10k")) %>
+        </li>
+        <li>
+          <%= link_to("10~15k", mini_resumes_path(:wage => "10~15k")) %>
+        </li>
+        <li>
+          <%= link_to("15~25k", mini_resumes_path(:wage => "15~25k")) %>
+        </li>
+        <li>
+          <%= link_to("25k以上", mini_resumes_path(:wage => "25k以上")) %>
+        </li>
+        <li>
+          <%= link_to("所有薪资", mini_resumes_path(:wage => "所有薪资")) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
+  <% if @mini_resumes.count == 0 %>
+  <h4 class="text-center text-danger">没有符合条件的简历哦~</h4>
+  <% else %>
   <ul class="job-list">
     <% @mini_resumes.each do |mini_resume|  %>
     <li class="job-item">
@@ -20,4 +96,5 @@
     </li>
     <% end %>
   </ul>
+  <% end %>
 </div>

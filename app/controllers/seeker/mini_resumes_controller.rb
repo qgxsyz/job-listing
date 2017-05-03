@@ -47,6 +47,6 @@ class Seeker::MiniResumesController < ApplicationController
 
   private
   def mini_resume_params
-    params.require(:mini_resume).permit(:name, :job_name, :sex, :birthday, :work_start_time, :state, :address, :wage_upper_bound, :wage_lower_bound, :description)
+    params.require(:mini_resume).permit(:email, :name, :job_name, :sex, :birthday, :work_start_time, :state, :address, :wage_upper_bound, :wage_lower_bound, :description)
   end
 end
