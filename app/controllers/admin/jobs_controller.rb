@@ -14,7 +14,7 @@ class Admin::JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    render :admin_jobs_path
+    redirect_to admin_jobs_path
   end
 
 def new
