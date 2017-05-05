@@ -22,6 +22,8 @@
  html, body{
    height: 100%;
    background-color: #f2f2f5;
+  //  去除底部滚动条
+   overflow-x: hidden;
  }
  .common-height100{
    height: 100%;
@@ -161,6 +163,12 @@
 
     background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
   }
+   .navbar-brand > img {
+     display: inline-block; //图片和链接文字显示在同一行
+     margin-right: 10px; //图片和链接文字拉开一点距离
+     width: 32px; //定制图片宽度
+     height: 32px; //定制图片高度
+ }
 
 // 修改导航栏链接颜色
    .navbar-default .navbar-nav > li > a{
@@ -266,7 +274,7 @@
   .footer{
     clear: both;
     height: 70px;
-    margin-top: -70px;
+    // margin-top: -70px;
     border-top: 1px solid #ebebeb;
     .wrapper{
       margin: 0 auto;
